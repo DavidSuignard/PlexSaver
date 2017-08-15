@@ -1,5 +1,5 @@
 #!/bin/bash 
-
+date
 ping -q -c 5 192.168.0.84
 
 plexOnline=$?
@@ -13,7 +13,7 @@ while read s; do
  if [[ $scanSSID == *$s* ]]; then
      ((activeforbiddenSSID++))
  fi
-done <forbiddenSSID
+done </home/pi/Desktop/Smart_Switch/forbiddenSSID
 
 if (($activeforbiddenSSID > 0)) && [ $plexOnline -eq 0 ]; then
      echo ¨A forbidden network is detected and the Plex is online. Shutdown¨
